@@ -1,0 +1,25 @@
+group 'com.daniel'
+version '1.0-SNAPSHOT'
+
+//项目工程的设置属性
+allprojects {
+    apply plugin: 'maven'
+    apply plugin: 'java'
+}
+
+// 配置所有子项目共有配置
+subprojects {
+    apply plugin: 'java'
+
+    compileJava {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+        [compileJava]*.options*.encoding = 'UTF-8'
+    }
+
+    compileTestJava {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+        [compileTestJava]*.options*.encoding = 'UTF-8'
+    }
+}
